@@ -1,0 +1,48 @@
+index:
+    path: /
+    controller: App\Controller\IndexController::index
+
+cart:
+    path: /cart
+    controller: App\Controller\CartController::index
+
+product:
+    path: /product
+    controller: App\Controller\ProductController::index
+
+product-details:
+    path: /product-details
+    controller: App\Controller\ProductDetailsController::index
+
+contact:
+    path: /contact
+    controller: App\Controller\ContactController::index
+
+
+blog-single:
+    path: /blog-single
+    controller: App\Controller\BlogSingelController::index
+
+
+blog:
+    path: /blog
+    controller: App\Controller\BlogController::index
+
+login:
+    path: /login
+    controller: App\Controller\LoginController::index
+
+checkout:
+    path: /checkout
+    controller: App\Controller\CheckoutController::index
+
+
+notFound:
+    path: /notFound
+    controller: App\Controller\NotFoundController::index
+
+
+
+
+
+
