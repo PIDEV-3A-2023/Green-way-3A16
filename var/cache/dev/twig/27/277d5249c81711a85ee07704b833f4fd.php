@@ -33,7 +33,7 @@ class __TwigTemplate_94f3a12d16559428f984e79e0fe7b8eb extends Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "back.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_94f3a12d16559428f984e79e0fe7b8eb extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "prod/show.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "prod/show.html.twig", 1);
+        $this->parent = $this->loadTemplate("back.html.twig", "prod/show.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -167,7 +167,7 @@ class __TwigTemplate_94f3a12d16559428f984e79e0fe7b8eb extends Template
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'back.html.twig' %}
 
 {% block title %}Product{% endblock %}
 
@@ -205,6 +205,6 @@ class __TwigTemplate_94f3a12d16559428f984e79e0fe7b8eb extends Template
 
     {{ include('prod/_delete_form.html.twig') }}
 {% endblock %}
-", "prod/show.html.twig", "C:\\Users\\21695\\Downloads\\ray\\Green_Way_Web\\templates\\prod\\show.html.twig");
+", "prod/show.html.twig", "C:\\Users\\21695\\Documents\\GitHub\\Green-way-3A16\\templates\\prod\\show.html.twig");
     }
 }
