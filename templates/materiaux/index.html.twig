@@ -1,0 +1,44 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Materiaux index{% endblock %}
+
+{% block body %}
+<div style="margin-top:100px">
+    <h1>Materiaux </h1>
+
+    <table border=32  class="table">
+        <thead>
+            <tr>
+                <th>Idmateriaux</th>
+                <th>Type</th>
+                <th>Taux de recyclage</th>
+                <th>Date d'expiration</th>
+                <th>Condition d'utilisation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for materiaux in materiauxes %}
+            <tr>
+                <td>{{ materiaux.idmateriaux }}</td>
+                <td>{{ materiaux.type }}</td>
+                <td>{{ materiaux.taux }}</td>
+                <td>{{ materiaux.duree }}</td>
+                <td>{{ materiaux.conditionUt }}</td>
+                <td>
+                    <a href="{{ path('app_materiaux_show', {'idmateriaux': materiaux.idmateriaux}) }}">afficher</a>
+                   <a href="{{ path('app_materiaux_edit', {'idmateriaux': materiaux.idmateriaux}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div style="text-align: center;">
+    <a href="{{ path('app_materiaux_new') }}" style="">Ajouter</a>
+</div>
+{% endblock %}

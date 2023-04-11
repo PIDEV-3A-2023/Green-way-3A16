@@ -1,0 +1,30 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Evaluation{% endblock %}
+
+{% block body %}
+    <h1>Evaluation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idevaluation</th>
+                <td>{{ evaluation.idevaluation }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ evaluation.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Rating</th>
+                <td>{{ evaluation.rating }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_evaluation_index') }}">back to list</a>
+
+    <a href="{{ path('app_evaluation_edit', {'idevaluation': evaluation.idevaluation}) }}">edit</a>
+
+    {{ include('evaluation/_delete_form.html.twig') }}
+{% endblock %}

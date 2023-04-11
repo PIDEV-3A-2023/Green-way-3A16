@@ -1,0 +1,33 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Evaluation index{% endblock %}
+
+{% block body %}
+    <h1>Evaluation index</h1>
+ 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idevaluation</th>
+                <th>Contenu</th>
+                <th>Rating</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for evaluation in evaluations %}
+            <tr>
+                <td>{{ evaluation.idevaluation }}</td>
+                <td>{{ evaluation.contenu }}</td>
+                <td>{{ evaluation.rating }}</td>
+              
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
