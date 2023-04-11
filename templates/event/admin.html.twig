@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}Event index{% endblock %}
 
 {% block body %}
-
+{# 
 	<section id="slider"><!--slider-->
 		<div class="container">
 			<div class="row">
@@ -43,8 +43,8 @@
                                       
 
 						</div>   {% endfor %}
-{# 							
-							<div class="item">
+{# 							 #}
+							{# <div class="item">
 								<div class="col-sm-6">
 									<h1><span>E</span>-SHOPPER</h1>
 									<h2>Free Ecommerce Template</h2>
@@ -57,7 +57,7 @@
 								</div>
 							</div> #}
 							
-						</div>
+					{#	</div>
 						
 						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
 							<i class="fa fa-angle-left"></i>
@@ -71,9 +71,9 @@
 			</div>
 		</div>
 	
-	</section><!--/slider-->
-{# 	
-    <h1>Event index</h1>
+	</section><!--/slider--> #}
+	<br><br><br>
+    <h1>Event </h1>
 
     <table class="table">
         <thead>
@@ -109,5 +109,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_event_new') }}">Create new</a> #}
+    <a href="{{ path('app_event_new') }}">Create new</a>
 {% endblock %}
