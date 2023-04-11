@@ -803,6 +803,6 @@ class __TwigTemplate_e3a52630bdf8d0b1254ff0374554c7bb extends Template
         </table>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/config.html.twig", "C:\\Users\\21695\\Downloads\\ray\\Green_Way_Web\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
+", "@WebProfiler/Collector/config.html.twig", "C:\\Users\\21695\\Documents\\GitHub\\Green-way-3A16\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
     }
 }

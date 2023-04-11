@@ -2463,6 +2463,6 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
     <script src=\"{{ asset('front/js/jquery.prettyPhoto.js')}}\"></script>
     <script src=\"{{ asset('front/js/main.js')}}\"></script>
 </body>
-</html>", "base.html.twig", "C:\\Users\\21695\\Downloads\\ray\\Green_Way_Web\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\Users\\21695\\Documents\\GitHub\\Green-way-3A16\\templates\\base.html.twig");
     }
 }
