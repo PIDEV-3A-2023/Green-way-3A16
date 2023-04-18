@@ -45,6 +45,9 @@ class ProdController extends AbstractController
     {
         return $this->render('prod/show.html.twig', [
             'product' => $product,
+            // $image = $this->getDoctrine()
+            // ->getRepository(Image::class)
+            // ->find($id_Product)
         ]);
     }
 

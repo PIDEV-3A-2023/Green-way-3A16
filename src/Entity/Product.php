@@ -15,22 +15,22 @@ class Product
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-   // #[Assert\NotBlank(message:"peut pas etre vide")]
+    #[Assert\NotBlank(message:"peut pas etre vide")]
     private ?int $id_Product=null;
 
 
     #[ORM\Column]
-   // #[Assert\NotBlank(message:"peut pas etre vide")]
+    #[Assert\NotBlank(message:"peut pas etre vide")]
     private ?float $price= null;
     #[ORM\Column(length: 500)]
-   // #[Assert\NotBlank(message:"peut pas etre vide")]
+    #[Assert\NotBlank(message:"peut pas etre vide")]
     private ?string $description= null;
     #[ORM\Column(length: 500)]
-   // #[Assert\NotBlank(message:"peut pas etre vide")]
+    #[Assert\NotBlank(message:"peut pas etre vide")]
     private ?string $image= null;
 
     #[ORM\Column(length: 500)]
-   // #[Assert\NotBlank(message:"peut pas etre vide")]
+    #[Assert\NotBlank(message:"peut pas etre vide")]
     private ?string $name = null;
   
 

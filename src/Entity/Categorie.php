@@ -22,6 +22,22 @@ class Categorie
     #[Assert\NotBlank(message:"peut pas etre vide")]
     private ?string $nomcategorie= null;
   
+    public function getIdcategorie(): ?int
+    {
+        return $this->idcategorie;
+    }
+    
+    public function getNomCategorie(): ?string
+    {
+        return $this->nomcategorie;
+    }
 
+    public function setNomCategorie(string $NomCategorie): self
+    {
+        $this->NomCategorie = $NomCategorie;
+
+        return $this;
+    }
+    
 
 }
