@@ -9,36 +9,82 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Knp\Component\Pager\Paginator;
+use Knp\Component\Pager\PaginatorInterface;
 #[Route('/prod')]
 class ProdController extends AbstractController
 {
     #[Route('/', name: 'app_prod_index', methods: ['GET'])]
-    public function index(ProductRepository $productRepository): Response
-    {
+    public function index(ProductRepository $productRepository, PaginatorInterface $paginator, Request $request ): Response
+    {  $em = $this->getDoctrine()->getManager();
+        
+        // Get some repository of data, in our case we have an Appointments entity
+        $appointmentsRepository = $em->getRepository(Product::class);
+                
+        // Find all the data on the Appointments table, filter your query as you need
+        $allAppointmentsQuery = $productRepository->findall();
+        
+        // Paginate the results of the query
+        $appointments = $paginator->paginate(
+            // Doctrine Query, not results
+            $allAppointmentsQuery,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            2
+        );
         return $this->render('prod/index.html.twig', [
+            'pagination' => $appointments,
             'products' => $productRepository->findAll(),
         ]);
     }
 
+    // #[Route('/new', name: 'app_prod_new', methods: ['GET', 'POST'])]
+    // public function new(Request $request, ProductRepository $productRepository): Response
+    // {
+    //     $product = new Product();
+    //     $form = $this->createForm(Product1Type::class, $product);
+    //     $form->handleRequest($request);
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $productRepository->save($product, true);
+
+    //         return $this->redirectToRoute('app_prod_index', [], Response::HTTP_SEE_OTHER);
+    //     }
+
+    //     return $this->renderForm('prod/new.html.twig', [
+    //         'product' => $product,
+    //         'form' => $form,
+    //     ]);
+    // }
     #[Route('/new', name: 'app_prod_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ProductRepository $productRepository): Response
-    {
-        $product = new Product();
-        $form = $this->createForm(Product1Type::class, $product);
-        $form->handleRequest($request);
+public function new(Request $request, ProductRepository $productRepository): Response
+{
+    $product = new Product();
+    $form = $this->createForm(Product1Type::class, $product);
+    $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+    if ($form->isSubmitted() && $form->isValid()) {
+        $existingProduct = $productRepository->findOneBy(['name' => $product->getName()]);
+
+        if ($existingProduct) {
+            // If the product already exists, increment its quantity by 1
+            $existingProduct->setQuantity($existingProduct->getQuantity() + 1);
+            $productRepository->save($existingProduct, true);
+        } else {
+            // If the product does not exist, create a new product
             $productRepository->save($product, true);
-
-            return $this->redirectToRoute('app_prod_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('prod/new.html.twig', [
-            'product' => $product,
-            'form' => $form,
-        ]);
+        return $this->redirectToRoute('app_prod_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    return $this->renderForm('prod/new.html.twig', [
+        'product' => $product,
+        'form' => $form,
+    ]);
+}
+
 
     #[Route('/{id_Product}', name: 'app_prod_show', methods: ['GET'])]
     public function show(Product $product): Response

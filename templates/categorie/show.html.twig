@@ -8,8 +8,8 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Idcategorie</th>
-                <td>{{ categorie.idcategorie }}</td>
+                <th>Idcategorie_id</th>
+                <td>{{ categorie.idcategorieId }}</td>
             </tr>
             <tr>
                 <th>Nomcategorie</th>
@@ -20,7 +20,7 @@
 
     <a href="{{ path('app_categorie_index') }}">back to list</a>
 
-    <a href="{{ path('app_categorie_edit', {'idcategorie': categorie.idcategorie}) }}">edit</a>
+    <a href="{{ path('app_categorie_edit', {'idcategorie_id': categorie.idcategorie_id}) }}">edit</a>
 
     {{ include('categorie/_delete_form.html.twig') }}
 {% endblock %}

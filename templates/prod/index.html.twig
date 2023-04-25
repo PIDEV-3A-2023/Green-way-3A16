@@ -35,19 +35,21 @@
     <table class="table">
         <thead>
             <tr>
-                <th>IdProduct</th>
+                <th>Name</th>
                 <th>Price</th>
                 <th>Description</th>
+                <th>Quantity</th>
                 <th>Image</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for product in products %}
+        {% for product in pagination %}
             <tr>
-                <td>{{ product.idProduct }}</td>
-                <td>{{ product.price }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}dt</td>
                 <td>{{ product.description }}</td>
+                <td>{{ product.quantity }}</td>
                 <td>  <img style="height:200px;width:200px;" src="{{ product.image }}" alt="{{ product.image }}" />
 </td>
                 <td>
@@ -62,6 +64,11 @@
         {% endfor %}
         </tbody>
     </table>
+     {% if pagination.getTotalItemCount() > 1 %}
+    <div class="pagination">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endif %}
 
     <a href="{{ path('app_prod_new') }}">Create new</a>
 {% endblock %}

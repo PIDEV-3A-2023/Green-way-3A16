@@ -2,29 +2,34 @@
 
 namespace App\Form;
 
-use App\Entity\Event;
+use App\Entity\Product;
+use App\Entity\Categorie;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class EventType extends AbstractType
+class Product2Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('datedeb')
-            ->add('datefin')
+            ->add('price')
             ->add('description')
             ->add('image')
+            ->add('name')
             ->add('quantity')
+            ->add('Categorie')
+            ->add('Categorie',EntityType::class,['class' =>Categorie::class,
+            "choice_label"=>'nomCategorie'])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Event::class,
+            'data_class' => Product::class,
         ]);
     }
 }

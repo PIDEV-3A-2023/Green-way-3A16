@@ -15,16 +15,16 @@ class Categorie
     #[ORM\GeneratedValue]
     #[ORM\Column]
     #[Assert\NotBlank(message:"peut pas etre vide")]
-    private ?int $idcategorie=null;
+    private ?int $id=null;
    
 
     #[ORM\Column(length: 500)]
     #[Assert\NotBlank(message:"peut pas etre vide")]
     private ?string $nomcategorie= null;
   
-    public function getIdcategorie(): ?int
+    public function getidcategorieId(): ?int
     {
-        return $this->idcategorie;
+        return $this->id;
     }
     
     public function getNomCategorie(): ?string
@@ -38,6 +38,5 @@ class Categorie
 
         return $this;
     }
-    
 
 }

@@ -15,23 +15,30 @@ class Product
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Assert\NotBlank(message:"peut pas etre vide")]
+  //  #[Assert\NotBlank(message:"peut pas etre vide")]
     private ?int $id_Product=null;
 
 
     #[ORM\Column]
-    #[Assert\NotBlank(message:"peut pas etre vide")]
+  //  #[Assert\NotBlank(message:"peut pas etre vide")]
     private ?float $price= null;
     #[ORM\Column(length: 500)]
-    #[Assert\NotBlank(message:"peut pas etre vide")]
+   // #[Assert\NotBlank(message:"peut pas etre vide")]
     private ?string $description= null;
     #[ORM\Column(length: 500)]
-    #[Assert\NotBlank(message:"peut pas etre vide")]
+//    #[Assert\NotBlank(message:"peut pas etre vide")]
     private ?string $image= null;
 
     #[ORM\Column(length: 500)]
-    #[Assert\NotBlank(message:"peut pas etre vide")]
+  //  #[Assert\NotBlank(message:"peut pas etre vide")]
     private ?string $name = null;
+
+    #[ORM\Column(length: 255)]
+  //  #[Assert\NotBlank(message:"peut pas etre vide")]
+    private ?int $quantity=null;
+
+    #[ORM\ManyToOne(inversedBy: 'products')]
+    private ?Categorie $Categorie = null;
   
 
     // /**
@@ -112,6 +119,29 @@ class Product
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(?int $quantity): self
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+    
+    public function getCategorie(): ?Categorie
+    {
+        return $this->Categorie;
+    }
+
+    public function setCategorie(?Categorie $Categorie): self
+    {
+        $this->Categorie = $Categorie;
 
         return $this;
     }

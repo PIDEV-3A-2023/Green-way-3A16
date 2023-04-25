@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
-use App\Form\Categorie1Type;
+use App\Form\Categorie2Type;
 use App\Repository\CategorieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +25,7 @@ class CategorieController extends AbstractController
     public function new(Request $request, CategorieRepository $categorieRepository): Response
     {
         $categorie = new Categorie();
-        $form = $this->createForm(Categorie1Type::class, $categorie);
+        $form = $this->createForm(Categorie2Type::class, $categorie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -40,7 +40,7 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{idcategorie}', name: 'app_categorie_show', methods: ['GET'])]
+    #[Route('/{idcategorie_id}', name: 'app_categorie_show', methods: ['GET'])]
     public function show(Categorie $categorie): Response
     {
         return $this->render('categorie/show.html.twig', [
@@ -48,10 +48,10 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{idcategorie}/edit', name: 'app_categorie_edit', methods: ['GET', 'POST'])]
+    #[Route('/{idcategorie_id}/edit', name: 'app_categorie_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Categorie $categorie, CategorieRepository $categorieRepository): Response
     {
-        $form = $this->createForm(Categorie1Type::class, $categorie);
+        $form = $this->createForm(Categorie2Type::class, $categorie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -66,10 +66,10 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{idcategorie}', name: 'app_categorie_delete', methods: ['POST'])]
+    #[Route('/{idcategorie_id}', name: 'app_categorie_delete', methods: ['POST'])]
     public function delete(Request $request, Categorie $categorie, CategorieRepository $categorieRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$categorie->getIdcategorie(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$categorie->getIdcategorie_id(), $request->request->get('_token'))) {
             $categorieRepository->remove($categorie, true);
         }
 
