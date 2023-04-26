@@ -43,6 +43,7 @@
                                       
 
 						</div>   {% endfor %}
+                        
 {# 							
 							<div class="item">
 								<div class="col-sm-6">
@@ -71,7 +72,18 @@
 			</div>
 		</div>
 	
-	</section><!--/slider-->
+	</section>
+	<section id="calendar">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="fullCalendar"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+	<!--/slider-->
 {# 	
     <h1>Event index</h1>
 
@@ -111,3 +123,4 @@
 
     <a href="{{ path('app_event_new') }}">Create new</a> #}
 {% endblock %}
+

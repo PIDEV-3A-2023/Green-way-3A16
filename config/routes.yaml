@@ -42,7 +42,9 @@ notFound:
     controller: App\Controller\NotFoundController::index
 
 
-
+exel:
+    path: /exel
+    controller: App\Controller\EventController::indexexel
 
 
 

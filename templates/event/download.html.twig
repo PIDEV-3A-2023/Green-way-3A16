@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau des Evenements</title>
+</head>
+<body >
+<h1 style="text-align: center; color: red">Volcano Football Services</h1>
+<h2 style="text-align: center">Tableau des Evenements</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        
+        <th >Nom</th>
+        <th >date</th>
+        <th >description</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for e in evenements %}
+        <tr>
+            <h1>{{ e.nom }}</h1>
+									<h2>{{ e.datedeb ? e.datedeb|date('Y-m-d H:i:s') : '' }}</h2>
+									<p>{{ e.description }}</p>
+                                    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+</body>
+</html>
