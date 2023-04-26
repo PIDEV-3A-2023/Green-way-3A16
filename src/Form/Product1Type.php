@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Form;
+use App\Entity\Categorie;
 
 use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
@@ -18,6 +19,8 @@ class Product1Type extends AbstractType
             ->add('image')
             ->add('name')
             ->add('quantity')
+            ->add('Categorie',EntityType::class,['class' =>Categorie::class,
+            "choice_label"=>'nomCategorie'])
         ;
     }
 

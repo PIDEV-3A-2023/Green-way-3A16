@@ -20,7 +20,6 @@ class Product2Type extends AbstractType
             ->add('image')
             ->add('name')
             ->add('quantity')
-            ->add('Categorie')
             ->add('Categorie',EntityType::class,['class' =>Categorie::class,
             "choice_label"=>'nomCategorie'])
         ;

@@ -39,7 +39,8 @@ class Product
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     private ?Categorie $Categorie = null;
-  
+
+ 
 
     // /**
     //  * @var \Doctrine\Common\Collections\Collection
