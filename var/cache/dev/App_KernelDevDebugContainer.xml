@@ -6855,12 +6855,6 @@
         <argument key="event" type="service_closure" id=".errored..service_locator.kyRmj3Q.App\Entity\Event"/>
       </argument>
     </service>
-    <service id=".service_locator.0Fb1YCW" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="productRepository" type="service_closure" id="App\Repository\ProductRepository"/>
-      </argument>
-    </service>
     <service id=".service_locator.Qd2cSyK" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6868,10 +6862,10 @@
         <argument key="productRepository" type="service_closure" id="App\Repository\ProductRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.5OibA2." class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.0Fb1YCW" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="product" type="service_closure" id=".errored..service_locator.5OibA2..App\Entity\Product"/>
+        <argument key="productRepository" type="service_closure" id="App\Repository\ProductRepository"/>
       </argument>
     </service>
     <service id=".service_locator.Niycchk" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6881,7 +6875,13 @@
         <argument key="productRepository" type="service_closure" id="App\Repository\ProductRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.AG985tN" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.5OibA2." class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="product" type="service_closure" id=".errored..service_locator.5OibA2..App\Entity\Product"/>
+      </argument>
+    </service>
+    <service id=".service_locator.G19FMIt" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CategorieController::delete" type="service_closure" id=".service_locator.4oDAgEZ"/>
@@ -6894,12 +6894,12 @@
         <argument key="App\Controller\EventController::index" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\EventController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\EventController::show" type="service_closure" id=".service_locator.wLYTQQR"/>
-        <argument key="App\Controller\FrontController::index" type="service_closure" id=".service_locator.0Fb1YCW"/>
+        <argument key="App\Controller\FrontController::index" type="service_closure" id=".service_locator.Qd2cSyK"/>
         <argument key="App\Controller\ProdController::delete" type="service_closure" id=".service_locator.Niycchk"/>
         <argument key="App\Controller\ProdController::edit" type="service_closure" id=".service_locator.Niycchk"/>
         <argument key="App\Controller\ProdController::index" type="service_closure" id=".service_locator.Qd2cSyK"/>
         <argument key="App\Controller\ProdController::new" type="service_closure" id=".service_locator.0Fb1YCW"/>
-        <argument key="App\Controller\ProdController::show" type="service_closure" id=".service_locator.5OibA2."/>
+        <argument key="App\Controller\ProdController::show" type="service_closure" id=".service_locator.Niycchk"/>
         <argument key="App\Controller\ProductfkController::delete" type="service_closure" id=".service_locator.Niycchk"/>
         <argument key="App\Controller\ProductfkController::edit" type="service_closure" id=".service_locator.Niycchk"/>
         <argument key="App\Controller\ProductfkController::index" type="service_closure" id=".service_locator.0Fb1YCW"/>
@@ -6919,12 +6919,12 @@
         <argument key="App\Controller\EventController:index" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\EventController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\EventController:show" type="service_closure" id=".service_locator.wLYTQQR"/>
-        <argument key="App\Controller\FrontController:index" type="service_closure" id=".service_locator.0Fb1YCW"/>
+        <argument key="App\Controller\FrontController:index" type="service_closure" id=".service_locator.Qd2cSyK"/>
         <argument key="App\Controller\ProdController:delete" type="service_closure" id=".service_locator.Niycchk"/>
         <argument key="App\Controller\ProdController:edit" type="service_closure" id=".service_locator.Niycchk"/>
         <argument key="App\Controller\ProdController:index" type="service_closure" id=".service_locator.Qd2cSyK"/>
         <argument key="App\Controller\ProdController:new" type="service_closure" id=".service_locator.0Fb1YCW"/>
-        <argument key="App\Controller\ProdController:show" type="service_closure" id=".service_locator.5OibA2."/>
+        <argument key="App\Controller\ProdController:show" type="service_closure" id=".service_locator.Niycchk"/>
         <argument key="App\Controller\ProductfkController:delete" type="service_closure" id=".service_locator.Niycchk"/>
         <argument key="App\Controller\ProductfkController:edit" type="service_closure" id=".service_locator.Niycchk"/>
         <argument key="App\Controller\ProductfkController:index" type="service_closure" id=".service_locator.0Fb1YCW"/>
@@ -7640,12 +7640,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.AG985tN"/>
+      <argument type="service" id=".service_locator.G19FMIt"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.AG985tN"/>
+      <argument type="service" id=".service_locator.G19FMIt"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -7669,8 +7669,8 @@
     <service id=".errored..service_locator.4oDAgEZ.App\Entity\Categorie" class="App\Entity\Categorie"/>
     <service id=".errored..service_locator.wLYTQQR.App\Entity\Event" class="App\Entity\Event"/>
     <service id=".errored..service_locator.kyRmj3Q.App\Entity\Event" class="App\Entity\Event"/>
-    <service id=".errored..service_locator.5OibA2..App\Entity\Product" class="App\Entity\Product"/>
     <service id=".errored..service_locator.Niycchk.App\Entity\Product" class="App\Entity\Product"/>
+    <service id=".errored..service_locator.5OibA2..App\Entity\Product" class="App\Entity\Product"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -8616,7 +8616,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.AG985tN"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.G19FMIt"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -8642,7 +8642,7 @@
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.dK7et_d" alias=".service_locator.kyRmj3Q"/>
     <service id=".service_locator.e.ptmCY" alias=".service_locator.Qd2cSyK"/>
-    <service id=".service_locator.5amIhkG" alias=".service_locator.AG985tN"/>
+    <service id=".service_locator.4T1X1uI" alias=".service_locator.G19FMIt"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.iX3b9Hx" alias=".service_locator.igumNuF"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
@@ -8676,10 +8676,10 @@
     <service id=".service_locator.bInR.ll" alias=".service_locator.aKM6MDa"/>
     <service id=".service_locator.uHuTfZX" alias=".service_locator.wLYTQQR"/>
     <service id=".service_locator.n_VSMOo" alias=".service_locator.kyRmj3Q"/>
-    <service id=".service_locator.sa.k_vl" alias=".service_locator.0Fb1YCW"/>
     <service id=".service_locator.f2KrqfC" alias=".service_locator.Qd2cSyK"/>
-    <service id=".service_locator.6YEQyJB" alias=".service_locator.5OibA2."/>
+    <service id=".service_locator.sa.k_vl" alias=".service_locator.0Fb1YCW"/>
     <service id=".service_locator.FUhDIG5" alias=".service_locator.Niycchk"/>
+    <service id=".service_locator.6YEQyJB" alias=".service_locator.5OibA2."/>
     <service id=".service_locator.A740LBW" alias=".service_locator.mx0UMmY"/>
     <service id=".service_locator.L0rFhJm" alias=".service_locator.GVyCdgr"/>
     <service id=".service_locator.pFwChgS" alias=".service_locator.UkE3SaZ"/>

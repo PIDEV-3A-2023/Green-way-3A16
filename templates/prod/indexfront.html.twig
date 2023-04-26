@@ -21,6 +21,8 @@
 											<div class="overlay-content">
 												<h2>{{ product.price }}</h2>
 												<p>{{product.description}}</p>
+                                               <a href="{{path('app_prod_show',{'id_Product':product.getIdProduct()})}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Product Detail</a>
+
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
 										</div>
@@ -65,4 +67,10 @@
     </table>
 
     <a href="{{ path('app_prod_new') }}">Create new</a> #}
+    {% if pagination.getTotalItemCount() > 1 %}
+    <div class="pagination">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endif %}
+
 {% endblock %}

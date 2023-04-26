@@ -87,10 +87,12 @@ public function new(Request $request, ProductRepository $productRepository): Res
 
 
     #[Route('/{id_Product}', name: 'app_prod_show', methods: ['GET'])]
-    public function show(Product $product): Response
+    public function show(Product $product,ProductRepository $productRepository): Response
     {
-        return $this->render('prod/show.html.twig', [
+        return $this->render('prod/showf.html.twig', [
             'product' => $product,
+            'products' => $productRepository->findall(),
+
             // $image = $this->getDoctrine()
             // ->getRepository(Image::class)
             // ->find($id_Product)
