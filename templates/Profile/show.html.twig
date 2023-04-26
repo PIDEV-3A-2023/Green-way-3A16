@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>User Profile</h1>
+    <dl>
+        <dt>ID</dt>
+        <dd>{{ user.id }}</dd>
+        <dt>First Name</dt>
+        <dd>{{ user.nom }}</dd>
+        <dt>Last Name</dt>
+        <dd>{{ user.prenom }}</dd>
+        <dt>Email</dt>
+        <dd>{{ user.email }}</dd>
+        <dt>Telephone</dt>
+        <dd>{{ user.telephone }}</dd>
+        
+    </dl>
+         
+         <dt><a href="{{ path('pdf', {'id': user.id}) }}">Generate PDF</a> </dt>
+{% endblock %}

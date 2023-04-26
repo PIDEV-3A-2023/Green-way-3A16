@@ -1,9 +1,23 @@
 {% extends 'back.html.twig' %}
 
 {% block title %}User index{% endblock %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/search.css') }}">
+{% endblock %}
 {% block body %}
     <h1>User Management</h1>
+    <form class="search-form" method="POST" action="{{ path('app_user_search') }}">
+        <label>
+            <input type="radio" name="searchType" value="name" checked> Search by name
+        </label>
+        <label>
+            <input type="radio" name="searchType" value="email"> Search by email
+        </label>
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+    </form>
+
+
     <table class="table">
         <thead>
             <tr>
@@ -13,10 +27,10 @@
                 <th>Email</th>
                 <th>Password</th>
                 <th>Telephone</th>
-                <th>Role</th>
                 <th>actions</th>
             </tr>
         </thead>
+        
         <tbody>
         {% for user in users %}
             <tr>
@@ -26,7 +40,7 @@
                 <td>{{ user.email }}</td>
                 <td>{{ user.password }}</td>
                 <td>{{ user.telephone }}</td>
-                <td>{{ user.role }}</td>
+                
                 <td>
                     <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
@@ -41,4 +55,5 @@
     </table>
 
     <a href="{{ path('app_user_new') }}">Create new</a>
+<a href="{{ path('app_user_exel') }}">Create EXEL</a>
 {% endblock %}

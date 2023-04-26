@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Log in</h2>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {{ form_start(login_form) }}
+        {{ form_widget(login_form.email) }}
+        {{ form_widget(login_form.password) }}
+        
+        {{ form_widget(login_form.login) }}
+    {{ form_end(login_form) }}
+    
+{% endblock %}

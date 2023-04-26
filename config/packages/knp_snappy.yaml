@@ -1,0 +1,9 @@
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "wkhtmltopdf"
+        options:    
+            no-outline: true
+            page-size: LETTER
+            # Recommended to set UTF-8 as default encoding :)
+            encoding: UTF-8

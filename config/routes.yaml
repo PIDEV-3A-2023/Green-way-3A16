@@ -29,8 +29,8 @@ blog:
     controller: App\Controller\BlogController::index
 
 login:
-    path: /login
-    controller: App\Controller\LoginController::index
+    path: /security/login
+    controller: App\Controller\UserController::login
 
 checkout:
     path: /checkout
@@ -40,9 +40,32 @@ checkout:
 notFound:
     path: /notFound
     controller: App\Controller\NotFoundController::index
+    
+Inscription:
+    path: /user/new
+    controller: App\Controller\UserController::new
+
+Admin:
+    path: /user
+    controller: App\Controller\UserController::index
+
+user_profile:
+    path: /user_profile
+    controller: App\Controller\UserController::profile
 
 
+app_product_details:
+    path: /product-details/{id}
+    controller: App\Controller\ProductDetailsController::index
+pdf:
+    path: /pdf/{id}
+    controller: App\Controller\UserController::pdf
 
 
-
-
+      
+app_password_reset:
+  path: /password-reset
+  controller: App\Controller\UserController::passwordReset
+exel:
+    path: /user/exel
+    controller: App\Controller\UserController::indexexel

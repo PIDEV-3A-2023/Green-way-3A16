@@ -40,10 +40,7 @@ class User
 
     private ?int $telephone = null;
 
-    #[ORM\Column(length: 255)]
-       // #[Assert\NotBlank(message:"Le champ role ne peut pas être vide")]
-
-    private ?string $role = null;
+  
 
     public function getId(): ?int
     {
@@ -110,15 +107,8 @@ class User
         return $this;
     }
 
-    public function getRole(): ?string
-    {
-        return $this->role;
-    }
+    
+        
 
-    public function setRole(string $role): self
-    {
-        $this->role = $role;
-
-        return $this;
-    }
+    
 }
