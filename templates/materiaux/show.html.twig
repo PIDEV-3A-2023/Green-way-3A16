@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Details</h1>
+
+        {% if materiaux is not null %}
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Idmateriaux</th>
+                        <td>{{ materiaux.idmateriaux }}</td>
+                    </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td>{{ materiaux.type }}</td>
+                    </tr>
+                    <tr>
+                        <th>Taux de recyclage</th>
+                        <td>{{ materiaux.taux }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date d'expiration</th>
+                        <td>{{ materiaux.duree }}</td>
+                    </tr>
+                    <tr>
+                        <th>Condition d'utilisation</th>
+                        <td>{{ materiaux.conditionUt }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        {% else %}
+            <p>Sorry, the material you are looking for does not exist.</p>
+        {% endif %}
+
+        <a href="{{ path('app_materiaux_index') }}">retour</a>
+
+    </div>
+{# 
+
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .table th,
+  .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table tr:hover {
+    background-color: #7AA95C;
+  } #}
+</style>
+        </table>
+
+        <a href="{{ path('app_materiaux_index') }}">retour</a>
+
+
+    </div>
+{% endblock %}

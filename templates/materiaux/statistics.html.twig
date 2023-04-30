@@ -1,0 +1,64 @@
+{% block title %}Materiaux statistics{% endblock %}
+
+{% block body %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <div style="margin-top:100px">
+        <h1>Statistics</h1>
+
+        {% set labels = [] %}
+        {% set data = [] %}
+
+        {% for stat in statistics %}
+            {% set labels = labels|merge([stat.type]) %}
+            {% set data = data|merge([stat.count]) %}
+        {% endfor %}
+
+        {% if statistics|length > 0 %}
+            <canvas id="PieChart" width="400" height="400"></canvas>
+        {% else %}
+            <p>No statistics available</p>
+        {% endif %}
+    </div>
+
+    <script>
+        {% if statistics|length > 0 %}
+            var ctx = document.getElementById('PieChart').getContext('2d');
+            var myLineChart = new Chart(ctx, {
+                type: 'line', // change chart type to line
+                data: {
+                    labels: {{ labels|json_encode|raw }},
+                    datasets: [{
+                        data: {{ data|json_encode|raw }},
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        {% endif %}
+    </script>
+{% endblock %}

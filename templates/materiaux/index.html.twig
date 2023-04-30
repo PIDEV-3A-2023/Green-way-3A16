@@ -1,0 +1,71 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Materiaux index{% endblock %}
+
+{% block body %}
+    <div style="margin-top:100px">
+        <h1>Materiaux </h1>
+        <form method="GET" action="{{ path('app_materiaux_index') }}">
+            <div class="form-group" style="display: flex; margin-left: 30px; margin-top: 65px;">
+                <label for="type" style="margin-left :10px;margin-top: 5px;">Type:</label>
+                <select name="type" id="type" class="form-control" style="margin-left :90px;">
+                    <option value="">--Choisir un type--</option>
+                    {% for type in types %}
+                        <option value="{{ type }}">{{ type }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+<button type="submit" class="btn btn-primary" style= "background-color: #4CAF50;font-size: 14px; padding: 5px 20px; display: block; margin: 0 auto;">Recherche</button>
+        </form>
+
+        <table border=32 class="table">
+            <thead>
+                <tr>
+                    <th>Idmateriaux</th>
+                    <th>Type</th>
+                    <th>Taux de recyclage</th>
+                    <th>Date d'expiration</th>
+                    <th>Condition d'utilisation</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for materiaux in materiauxes %}
+                    <tr>
+                        <td>{{ materiaux.idmateriaux }}</td>
+                        <td>{{ materiaux.type }}</td>
+                        <td>{{ materiaux.taux }}</td>
+                        <td>{{ materiaux.duree|date('d/m/Y') }}</td>
+                        <td>{{ materiaux.conditionUt }}</td>
+                        <td>
+<a href="{{ path('app_materiaux_edit', {'idmateriaux': materiaux.idmateriaux}) }}" style="display: inline-block; padding: 5px 8px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Modifier</a>
+<a href="{{ path('listp' )}}" style="display: inline-block; padding: 5px 8px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Télecharger</a>
+
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">no records found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+       <style>
+a.button {
+  border: 1px solid black;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+}
+
+a.button:hover {
+  background-color: yellow;
+}
+</style>
+
+<div style="text-align: center;">
+    <a href="{{ path('app_materiaux_statistics') }}" style="display: inline-block; padding: 5px 10px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">View Statistics</a>
+        <a href="{{ path('ajouter_materiaux') }}" style="display: inline-block; padding: 5px 10px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Ajouter un materiaux</a>
+
+</div>
+{% endblock %}

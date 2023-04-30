@@ -38,6 +38,46 @@ class MateriauxRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function getStatisticsByType()
+{
+    return $this->createQueryBuilder('m')
+        ->select('m.type, COUNT(m) as count')
+        ->groupBy('m.type')
+        ->getQuery()
+        ->getResult()
+    ;
+}
+    public function getTypes(): array
+    {
+        $qb = $this->createQueryBuilder('m')
+            ->select('DISTINCT m.type')
+            ->orderBy('m.type', 'ASC');
+    
+        $query = $qb->getQuery();
+        $types = $query->getResult();
+    
+        $result = [];
+        foreach ($types as $type) {
+            $result[] = $type['type'];
+        }
+    
+        return $result;
+    }
+    public function searchByType($type = null)
+{
+    $queryBuilder = $this->createQueryBuilder('m');
+
+    if ($type) {
+        $queryBuilder
+            ->where('m.type = :type')
+            ->setParameter('type', $type);
+    } else {
+        // return all materials if no type selected
+        $queryBuilder->select('m');
+    }
+
+    return $queryBuilder->getQuery()->getResult();
+}
 
 //    /**
 //     * @return Materiaux[] Returns an array of Materiaux objects

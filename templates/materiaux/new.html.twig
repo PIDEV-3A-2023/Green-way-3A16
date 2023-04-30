@@ -1,0 +1,69 @@
+{% extends 'back.html.twig' %}
+
+{% block body %}
+	<div class="row">
+		<div style="display: flex; align-items: center; justify-content: center; margin-left: 300px; margin-top: 65px;">
+
+			<div class="card" style="">
+				<div class="card-body" style="height: 600px; width: 500px; padding: 80% 100; font-size: 10px; margin: 5px;">
+					<h5>Ajouter un materiaux</h5>
+
+					<!-- General Form Elements -->
+					{{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+
+					<div class="form-group" style="margin-top:20px">
+						{{ form_label(form.type, 'Type:', {label_attr: {'style': 'margin-bottom: 10px;'}}) }}
+						<div style="margin-left: 150px; margin-top: 20px;">
+							{{ form_widget(form.type, {attr: {class: 'form-control'}, 'choice_widget': 'select'}) }}
+						</div>
+						{{ form_errors(form.type, {attr: {class: 'text-danger'}}) }}
+					</div>
+
+					<div class="form-group" style="margin-top:20px">
+						{{ form_label(form.conditionUt, 'Condition d\'utilisation:') }}
+                        <div style="margin-left: 150px; margin-top: 15px;">
+                        {{ form_widget(form.conditionUt, {attr: {class: 'form-control'}, 'choice_widget': 'select'}) }}
+                        </div>
+                        {{ form_errors(form.conditionUt, {attr: {class: 'text-danger'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.Date, "Date d'ajout:") }}
+                        {{ form_widget(form.Date, {attr: {class: 'form-control'}}) }}
+                        {{ form_errors(form.Date, {attr: {class: 'text-danger'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                    {{ form_label(form.poids, "Poids:") }}
+                    {{ form_widget(form.poids, {'attr': {'class': 'form-control', 'type': 'date'}}) }}
+                    {{ form_errors(form.poids) }}
+                    </div>
+                     {{ form_row(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Recherche'}}) }}
+                     <div class="col-md-6" style="display: flex;">
+               
+                     <div class="col-md-6" style="display: flex;">
+                        {% if qrCode %}
+                         <img src="{{ qrCode }}" alt="qr-code" style="margin-left:250px ">
+                         {% endif %}
+                          </div>
+                        </div>
+                        <hr>
+                      <div style="display: flex; justify-content: center;">
+                       <button type="submit" style="background-color: transparent; border: none;" name="action" value="recherche" >Recherche</button>
+                       </div> 
+                     </div>
+				
+				  <br/>
+				   <button type="submit" name="action" value="create" class="btn btn-primary"  style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Create</button>
+                    
+        
+				  {{ form_end(form) }}
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<a href="{{ path('app_materiaux_index') }}">retour</a>
+{% endblock %}
